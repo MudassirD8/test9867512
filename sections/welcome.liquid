@@ -124,8 +124,9 @@
       });
 
       function updateSlider() {
-        const translateValue = `-${currentSlide * 100}%`;
-        document.querySelector('.custom-slider .slider').style.transform = `translateX(${translateValue})`;
+        slides.forEach((slide, index) => {
+          slide.style.display = index === currentSlide ? 'block' : 'none';
+        });
       }
     });
   </script>
