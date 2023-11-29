@@ -28,7 +28,7 @@
       "id": "block1_button_bg_color",
       "default": "#3498db"
     },
-        {
+    {
       "type": "text",
       "label": "Block 2 Button Text",
       "id": "block2_button_text",
@@ -38,6 +38,18 @@
       "type": "color",
       "label": "Block 2 Button Background Color",
       "id": "block2_button_bg_color",
+      "default": "#3498db"
+    },
+    {
+      "type": "text",
+      "label": "Block 3 Button Text",
+      "id": "block3_button_text",
+      "default": "Read More"
+    },
+    {
+      "type": "color",
+      "label": "Block 3 Button Background Color",
+      "id": "block3_button_bg_color",
       "default": "#3498db"
     }
   ],
@@ -56,6 +68,20 @@
     <p>{{ section.settings.block1_subheading }}</p>
     <a href="#" style="background-color: {{ section.settings.block1_button_bg_color }};">
       {{ section.settings.block1_button_text }}
+    </a>
+  </div>
+  <div class="slider-block">
+    <h2>{{ section.settings.block2_heading }}</h2>
+    <p>{{ section.settings.block2_subheading }}</p>
+    <a href="#" style="background-color: {{ section.settings.block1_button_bg_color }};">
+      {{ section.settings.block2_button_text }}
+    </a>
+  </div>
+  <div class="slider-block">
+    <h2>{{ section.settings.block3_heading }}</h2>
+    <p>{{ section.settings.block3_subheading }}</p>
+    <a href="#" style="background-color: {{ section.settings.block1_button_bg_color }};">
+      {{ section.settings.block3_button_text }}
     </a>
   </div>
   <!-- Similar code for Block 2 and Block 3 -->
