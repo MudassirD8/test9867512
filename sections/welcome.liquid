@@ -151,7 +151,7 @@
 
       function updateSlider() {
         slides.forEach((slide, index) => {
-          const translateValue = (index - currentSlide) * 100;
+          const translateValue = (index - currentSlide) * 50; // Adjusted to 50%
           slide.style.transform = `translateX(${translateValue}%)`;
         });
       }
