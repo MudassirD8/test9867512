@@ -1,42 +1,51 @@
+{%- comment -%}
+  Define the settings for the section in the Schema.
+{%- endcomment -%}
 {% schema %}
 {
-"name": "Welcome",
-"settings": [
-{
-"id": "section-heading",
-"type": "text",
-"label": "Heading 1"
-},
-{
-"id": "section-large-heading",
-"type": "text",
-"label": "Heading 2"
-},
-{
-"id": "description",
-"type": "textarea",
-"label": "Description"
-},
-{
-"id": "view-btn-link",
-"type": "url",
-"label": "Button URL"
-},
-{
-"id": "view-btn",
-"type": "text",
-"label": "Button name"
-}
-],
-"presets": [
-{
-"name": "Welcome section Test",
-"category": "ADVANCED LAYOUT"
-}
-]
+  "name": "Slider Section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Slider Heading",
+      "id": "slider_heading",
+      "default": "Welcome to our Slider"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider Section",
+      "category": "ADVANCED LAYOUT"
+    }
+  ]
 }
 {% endschema %}
-{% stylesheet %}
-{% endstylesheet %}
-{% javascript %}
-{% endjavascript %}
+
+{%- comment -%}
+  Create the HTML structure for the section.
+{%- endcomment -%}
+<section class="slider-section">
+  <h2>{{ section.settings.slider_heading }}</h2>
+  <div class="slider-container">
+    {% for block in section.blocks %}
+      <div class="slide">
+        <h3>{{ block.settings.slide_heading | default: 'Slide Heading' }}</h3>
+        <p>{{ block.settings.slide_subheading | default: 'Slide Subheading' }}</p>
+        <a href="{{ block.settings.slide_button_link | default: '#' }}" class="btn">
+          {{- block.settings.slide_button_text | default: 'Learn More' -}}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{%- comment -%}
+  Add the necessary CSS and JavaScript to make it a slider.
+{%- endcomment -%}
+<style>
+  /* Add your styling for the slider here */
+</style>
+
+<script>
+  /* Add your JavaScript for the slider here */
+</script>
