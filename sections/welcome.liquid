@@ -120,41 +120,41 @@
     <div class="next">&#10095;</div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      let currentSlide = 0;
-      const slides = document.querySelectorAll('.custom-slider .slide');
-      const totalSlides = slides.length;
+  document.addEventListener('DOMContentLoaded', function () {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.custom-slider .slide');
+    const totalSlides = slides.length;
 
-      slides.forEach((slide, index) => {
-        if (index !== 0) {
-          slide.style.transform = 'translateX(100%)';
-        }
-      });
-
-      document.querySelector('.custom-slider .next').addEventListener('click', function () {
-        if (currentSlide < totalSlides - 1) {
-          currentSlide++;
-        } else {
-          currentSlide = 0;
-        }
-        updateSlider();
-      });
-
-      document.querySelector('.custom-slider .prev').addEventListener('click', function () {
-        if (currentSlide > 0) {
-          currentSlide--;
-        } else {
-          currentSlide = totalSlides - 1;
-        }
-        updateSlider();
-      });
-
-      function updateSlider() {
-        slides.forEach((slide, index) => {
-          const translateValue = (index - currentSlide) * 50; // Adjusted to 50%
-          slide.style.transform = `translateX(${translateValue}%)`;
-        });
+    document.querySelector('.custom-slider .next').addEventListener('click', function () {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+      } else {
+        currentSlide = 0;
       }
+      updateSlider();
     });
+
+    document.querySelector('.custom-slider .prev').addEventListener('click', function () {
+      if (currentSlide > 0) {
+        currentSlide--;
+      } else {
+        currentSlide = totalSlides - 1;
+      }
+      updateSlider();
+    });
+
+    function updateSlider() {
+      slides.forEach((slide, index) => {
+        const translateValue = (index - currentSlide) * 100;
+        if (index === currentSlide || index === (currentSlide + 1) % totalSlides) {
+          slide.style.transform = `translateX(${translateValue}%)`;
+        } else {
+          slide.style.transform = 'translateX(200%)';
+        }
+      });
+    }
+
+    updateSlider(); // Call the function initially to set the correct state
+  });
   </script>
 </div>
