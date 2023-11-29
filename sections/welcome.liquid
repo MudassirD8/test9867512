@@ -80,15 +80,14 @@
 
   .slider {
     display: flex;
-    transition: transform 0.5s;
-    width: 200%; /* Adjusted width for two slides */
+    transition: transform 0.5s ease-in-out;
   }
 
   .slide {
     box-sizing: border-box;
     text-align: center;
     padding: 20px;
-    width: 50%; /* Adjusted width for two slides */
+    width: 100%;
   }
 </style>
 
@@ -122,38 +121,21 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       let currentSlide = 0;
-      const slides = document.querySelectorAll('.custom-slider .slide');
-      const totalSlides = slides.length;
-
-      slides.forEach((slide, index) => {
-        if (index !== 0) {
-          slide.style.transform = 'translateX(100%)';
-        }
-      });
+      const slides = document.querySelector('.custom-slider .slider');
+      const totalSlides = slides.children.length;
 
       document.querySelector('.custom-slider .next').addEventListener('click', function () {
-        if (currentSlide < totalSlides - 1) {
-          currentSlide++;
-        } else {
-          currentSlide = 0;
-        }
+        currentSlide = (currentSlide + 1) % totalSlides;
         updateSlider();
       });
 
       document.querySelector('.custom-slider .prev').addEventListener('click', function () {
-        if (currentSlide > 0) {
-          currentSlide--;
-        } else {
-          currentSlide = totalSlides - 1;
-        }
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         updateSlider();
       });
 
       function updateSlider() {
-        slides.forEach((slide, index) => {
-          const translateValue = index - currentSlide;
-          slide.style.transform = `translateX(${translateValue * 50}%)`;
-        });
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
       }
     });
   </script>
