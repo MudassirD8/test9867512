@@ -1,30 +1,6 @@
-<!-- Welcome section starts -->
-<section class="welcome">
-<div class="container">
-<div class="welcome-outter">
-{% if section.settings.section-heading != blank %}
-<h2 class="section-heading">{{ section.settings.section-heading }}</h2>
-{% endif %}
-{% if section.settings.section-large-heading != blank %}
-<h1 class="section-large-heading">{{ section.settings.section-large-heading }}</h1>
-{% endif %}
-{% if section.settings.description != blank %}
-<p class="discription">{{ section.settings.description }}</p>
-{% endif %}
-</div>
-<div class="col-xs-12 col-md-12 text-center">
-{% if section.settings.view-btn != blank %}
-<button class="view-btn">
-<a href="{{ section.settings.view-btn-link }}">{{ section.settings.view-btn }}</a>
-</button>
-{% endif %}
-</div>
-</div>
-</section>
-<!-- Welcome section ends -->
 {% schema %}
 {
-"name": "Welcome", // Section name
+"name": "Welcome",
 "settings": [
 {
 "id": "section-heading",
