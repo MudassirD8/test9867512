@@ -1,1 +1,60 @@
-a
+<!-- sections/custom-slider.liquid -->
+
+{% schema %}
+{
+  "name": "Custom Slider",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Block 1 Heading",
+      "id": "block1_heading",
+      "default": "Block 1 Heading"
+    },
+    {
+      "type": "text",
+      "label": "Block 1 Subheading",
+      "id": "block1_subheading",
+      "default": "Block 1 Subheading"
+    },
+    {
+      "type": "text",
+      "label": "Block 1 Button Text",
+      "id": "block1_button_text",
+      "default": "Read More"
+    },
+    {
+      "type": "color",
+      "label": "Block 1 Button Background Color",
+      "id": "block1_button_bg_color",
+      "default": "#3498db"
+    }
+  ],
+  "presets": [
+    {
+      "category": "custom",
+      "name": "Custom Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-slider">
+  <div class="slider-block">
+    <h2>{{ section.settings.block1_heading }}</h2>
+    <p>{{ section.settings.block1_subheading }}</p>
+    <a href="#" style="background-color: {{ section.settings.block1_button_bg_color }};">
+      {{ section.settings.block1_button_text }}
+    </a>
+  </div>
+  <!-- Similar code for Block 2 and Block 3 -->
+</div>
+
+<style>
+  .custom-slider {
+    /* Add your custom styles for the entire slider section here */
+  }
+
+  .slider-block {
+    /* Add your custom styles for each slider block here */
+  }
+</style>
