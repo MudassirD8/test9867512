@@ -1414,24 +1414,6 @@
     ]
   },
   {
-    "name": "Custom Slider",
-    "settings": [
-      {
-        "type": "text",
-        "label": "Slider Header",
-        "id": "slider_header",
-        "default": "Custom Slider"
-      },
-      {
-        "type": "textarea",
-        "label": "Slider Blocks",
-        "id": "slider_blocks",
-        "default": "[]",
-        "info": "Enter JSON array for each slider block..."
-      }
-    ]
-  },
-  {
     "name": "t:settings_schema.cart.name",
     "settings": [
       {
