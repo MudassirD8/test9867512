@@ -124,9 +124,8 @@
       });
 
       function updateSlider() {
-        slides.forEach((slide, index) => {
-          slide.style.display = index === currentSlide ? 'block' : 'none';
-        });
+        const translateValue = `-${currentSlide * 100}%`;
+        document.querySelector('.custom-slider .slider').style.transform = `translateX(${translateValue})`;
       }
     });
   </script>
