@@ -1,98 +1,102 @@
-<!-- sections/custom-slider.liquid -->
-
 {% schema %}
 {
   "name": "Custom Slider",
   "settings": [
     {
       "type": "text",
-      "label": "Block 1 Heading",
-      "id": "block1_heading",
-      "default": "Block 1 Heading"
+      "label": "Slide 1 Header",
+      "id": "slide1_header",
+      "default": "Slide 1 Header"
     },
     {
       "type": "text",
-      "label": "Block 1 Subheading",
-      "id": "block1_subheading",
-      "default": "Block 1 Subheading"
+      "label": "Slide 1 Subheader",
+      "id": "slide1_subheader",
+      "default": "Slide 1 Subheader"
     },
     {
       "type": "text",
-      "label": "Block 1 Button Text",
-      "id": "block1_button_text",
-      "default": "Read More"
+      "label": "Slide 1 Button Text",
+      "id": "slide1_button_text",
+      "default": "Learn More"
+    },
+    {
+      "type": "text",
+      "label": "Slide 1 Button Link",
+      "id": "slide1_button_link",
+      "default": "ok"
     },
     {
       "type": "color",
-      "label": "Block 1 Button Background Color",
-      "id": "block1_button_bg_color",
+      "label": "Slide 1 Button Color",
+      "id": "slide1_button_color",
       "default": "#3498db"
     },
     {
       "type": "text",
-      "label": "Block 2 Button Text",
-      "id": "block2_button_text",
-      "default": "Read More"
-    },
-    {
-      "type": "color",
-      "label": "Block 2 Button Background Color",
-      "id": "block2_button_bg_color",
-      "default": "#3498db"
+      "label": "Slide 2 Header",
+      "id": "slide2_header",
+      "default": "Slide 2 Header"
     },
     {
       "type": "text",
-      "label": "Block 3 Button Text",
-      "id": "block3_button_text",
-      "default": "Read More"
+      "label": "Slide 2 Subheader",
+      "id": "slide2_subheader",
+      "default": "Slide 2 Subheader"
+    },
+    {
+      "type": "text",
+      "label": "Slide 2 Button Text",
+      "id": "slide2_button_text",
+      "default": "Learn More"
+    },
+    {
+      "type": "text",
+      "label": "Slide 2 Button Link",
+      "id": "slide2_button_link",
+      "default": "string"
     },
     {
       "type": "color",
-      "label": "Block 3 Button Background Color",
-      "id": "block3_button_bg_color",
-      "default": "#3498db"
+      "label": "Slide 2 Button Color",
+      "id": "slide2_button_color",
+      "default": "#e74c3c"
     }
   ],
   "presets": [
     {
-      "category": "custom",
-      "name": "Custom Slider"
+      "name": "Custom Slider",
+      "category": "Custom"
     }
   ]
 }
 {% endschema %}
 
 <div class="custom-slider">
-  <div class="slider-block">
-    <h2>{{ section.settings.block1_heading }}</h2>
-    <p>{{ section.settings.block1_subheading }}</p>
-    <a href="#" style="background-color: {{ section.settings.block1_button_bg_color }};">
-      {{ section.settings.block1_button_text }}
-    </a>
+  <div class="slider">
+    <div class="slide">
+      <h2>{{ section.settings.slide1_header }}</h2>
+      <p>{{ section.settings.slide1_subheader }}</p>
+      <a
+        href="{{ section.settings.slide1_button_link }}"
+        style="background-color: {{ section.settings.slide1_button_color }};"
+      >
+        {{ section.settings.slide1_button_text }}
+      </a>
+    </div>
+    <div class="slide">
+      <h2>{{ section.settings.slide2_header }}</h2>
+      <p>{{ section.settings.slide2_subheader }}</p>
+      <a
+        href="{{ section.settings.slide2_button_link }}"
+        style="background-color: {{ section.settings.slide2_button_color }};"
+      >
+        {{ section.settings.slide2_button_text }}
+      </a>
+    </div>
   </div>
-  <div class="slider-block">
-    <h2>{{ section.settings.block2_heading }}</h2>
-    <p>{{ section.settings.block2_subheading }}</p>
-    <a href="#" style="background-color: {{ section.settings.block1_button_bg_color }};">
-      {{ section.settings.block2_button_text }}
-    </a>
+  <div class="slider-arrows">
+    <div class="prev">&#10094;</div>
+    <div class="next">&#10095;</div>
   </div>
-  <div class="slider-block">
-    <h2>{{ section.settings.block3_heading }}</h2>
-    <p>{{ section.settings.block3_subheading }}</p>
-    <a href="#" style="background-color: {{ section.settings.block1_button_bg_color }};">
-      {{ section.settings.block3_button_text }}
-    </a>
-  </div>
-  <!-- Similar code for Block 2 and Block 3 -->
 </div>
-
-<style>
-  .custom-slider {
-    /* Add your custom styles for the entire slider section here */
-  }
-
-  .slider-block {
-    /* Add your custom styles for each slider block here */
-  }
-</style>
