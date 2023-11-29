@@ -1,0 +1,92 @@
+<!-- sections/custom-slider.liquid -->
+
+{% schema %}
+{
+  "name": "Custom Slider",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Slider Header",
+      "id": "slider_header",
+      "default": "Custom Slider"
+    },
+    {
+      "type": "repeater",
+      "label": "Slider Blocks",
+      "id": "slider_blocks",
+      "max": 10,
+      "fields": [
+        {
+          "type": "text",
+          "label": "Header",
+          "id": "block_header",
+          "default": "Block Header"
+        },
+        {
+          "type": "text",
+          "label": "Subheader",
+          "id": "block_subheader",
+          "default": "Block Subheader"
+        },
+        {
+          "type": "text",
+          "label": "Button Text",
+          "id": "block_button_text",
+          "default": "Learn More"
+        },
+        {
+          "type": "color",
+          "label": "Button Background Color",
+          "id": "block_button_color",
+          "default": "#3498db"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-slider">
+  <h2>{{ section.settings.slider_header }}</h2>
+  <div class="slider-container">
+    {% for block in section.settings.slider_blocks %}
+      <div class="slider-block" style="background-color: {{ block.block_button_color }}">
+        <h3>{{ block.block_header }}</h3>
+        <p>{{ block.block_subheader }}</p>
+        <a href="#" style="background-color: {{ block.block_button_color }}">{{ block.block_button_text }}</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% style %}
+  .custom-slider {
+    /* Add your styling for the entire slider section */
+  }
+
+  .slider-container {
+    /* Add styling for the container of slider blocks */
+    display: flex;
+    /* Add more styling properties as needed */
+  }
+
+  .slider-block {
+    /* Styling for each individual slider block */
+    margin: 0 10px;
+    padding: 20px;
+    color: #fff;
+    /* Add more styling properties as needed */
+  }
+{% endstyle %}
+
+{% javascript %}
+  $(document).ready(function () {
+    $('.slider-container').slick({
+      /* Add your slider settings here, e.g., autoplay, arrows, etc. */
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      /* Add more settings as needed */
+    });
+  });
+{% endjavascript %}
